@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ElectroVia Voice Agent for Order Management</title>
+<style>
+:root{
+  --ink:#12233B;
+  --muted:#52627A;
+  --paper:#F4F7FA;
+  --panel:#FFFFFF;
+  --line:#D5DDE7;
+  --accent:#1F4FD8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.6;
+}
+header{padding:28px 6vw;border-bottom:1px solid var(--line);background:var(--panel);font-weight:700;font-size:20px;letter-spacing:.2px}
+header span{color:var(--accent)}
+main{max-width:920px;margin:0 auto;padding:56px 6vw 120px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin-bottom:16px}
+.lead{font-size:18px;color:var(--muted);max-width:60ch;margin-bottom:40px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:28px;margin-bottom:24px}
+h2{font-size:20px;margin-bottom:14px}
+ol,ul{padding-left:22px;max-width:70ch}
+li{margin-bottom:8px}
+table{border-collapse:collapse;width:100%;max-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);font-size:15px}
+th{width:40%;color:var(--muted);font-weight:600}
+code{font-family:Consolas,monospace;background:var(--paper);padding:2px 6px;border-radius:3px}
+.note{font-size:14px;color:var(--muted);margin-top:12px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header>Electro<span>Via</span></header>
+
+<main>
+  <h1>Order support by voice</h1>
+  <p class="lead">Talk to the ElectroVia AI agent to check, change or cancel an order. Use the call button on this page to start.</p>
+
+  <section>
+    <h2>How to test the agent</h2>
+    <ol>
+      <li>Click the call button and allow microphone access when your browser asks.</li>
+      <li>When prompted, say <b>English</b> (or <b>Deutsch</b> for German).</li>
+      <li>Verify your identity by giving the order number, postal code and phone number below.</li>
+      <li>Ask the agent to check an order status, change an order or cancel an order.</li>
+    </ol>
+    <p class="note">Prefer to type? Use the chat button at the bottom right. The call button is the voice agent being evaluated; the chat window is a text-only alternative.</p>
+  </section>
+
+  <section>
+    <h2>Test credentials</h2>
+    <table>
+      <tr><th>Order number</th><td>ORD-100001</td></tr>
+      <tr><th>Postal code</th><td>94105</td></tr>
+      <tr><th>Phone number</th><td>+49301234567</td></tr>
+    </table>
+    <p class="note">If the call does not connect, check that the browser has microphone permission for this page and that the page is opened over HTTPS.</p>
+  </section>
+</main>
+
+<footer>ElectroVia voice agent demo. Built on Cognigy.AI Voice Gateway.</footer>
+
+<!-- Cognigy Click To Call widget -->
+<script src="https://github.com/Cognigy/click-to-call-widget/releases/latest/download/webRTCWidget.js"></script>
+<script>
+  addEventListener("load", () => {
+    if (window.initWebRTCWidget) {
+      // Configuration URL from Deploy > Endpoints > ElectroVia_Voice (Click To Call Embedding HTML)
+      window.initWebRTCWidget("https://endpoint-trial.cognigy.ai/2a0a53fe148485ebddd3f5a02032df3833692976a44d062acfd776746dfd179c");
+    }
+  });
+</script>
+
+<!-- Cognigy Webchat (secondary, text option). Remove this block and the "Prefer to type" note to go voice-only. -->
+<script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script>
+<script>
+  addEventListener("load", () => {
+    if (window.initWebchat) {
+      window.initWebchat("https://endpoint-trial.cognigy.ai/439b2e8df7f9f522f9ac3d536055fc29fc198e6f374615e7d61942a02acaa7bd");
+    }
+  });
+</script>
+
+</body>
+</html>
